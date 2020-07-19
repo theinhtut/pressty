@@ -5,7 +5,7 @@ const app = express()
 const port = process.env.PORT || 3000
 
 app.get('/', (req: any, res: any) => {
-  res.send('Experimental project with Postgres SQL, Express, Nodejs and Typescript')
+  res.send('Releasing changes to test: CodePipeline --> Elastic Beanstalk')
 })
 
 app.listen(port, () => {
