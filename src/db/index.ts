@@ -1,7 +1,7 @@
 import { Pool } from "pg"
 import { DB_HOST, DB_NAME, DB_USERNAME, DB_PASS, DB_PORT } from "../utils/dotenv"
 
-const pool = new Pool({
+const dbReadPool = new Pool({
   host: DB_HOST,
   port: DB_PORT,
   database: DB_NAME,
@@ -9,4 +9,10 @@ const pool = new Pool({
   password: DB_PASS
 })
 
-export default pool
+try {
+  dbReadPool.connect()
+} catch (error) {
+  console.error(error)
+}
+
+export default dbReadPool

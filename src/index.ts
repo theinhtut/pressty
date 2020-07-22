@@ -1,5 +1,5 @@
 import express from "express"
-import pool from "./db/db"
+import dbReadPool from "./db"
 
 const app = express()
 
@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 
 app.get('/db', async (req, res) => {
   let test
-  pool.query('SELECT * FROM car;')
+  dbReadPool.query('SELECT * FROM person;')
   .then(({ rows }) => {
     test = rows
     res.send(test)
